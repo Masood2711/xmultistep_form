@@ -1,6 +1,6 @@
 describe('Multi-step Form', () => {
   beforeEach(() => {
-    cy.visit('https://nimble-lokum-097f6f.netlify.app');
+    cy.visit("http://localhost:8081/");
   });
 
   it('should load the initial step correctly', () => {
