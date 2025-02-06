@@ -1,6 +1,6 @@
 describe('Multi-step Form', () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8081/");
+    cy.visit('http://localhost:8081/');
   });
 
   it('should load the initial step correctly', () => {
