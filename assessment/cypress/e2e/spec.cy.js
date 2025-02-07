@@ -1,6 +1,6 @@
 describe('Multi-step Form', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:8081/');
+    cy.visit('http://localhost:8081');
   });
 
   it('should load the initial step correctly', () => {
@@ -69,7 +69,6 @@ describe('Multi-step Form', () => {
     cy.get('input[name="phone"]').type('7894561230');
     cy.get('button#next-button').click();
 
-    // Step 2: Select a plan
     cy.get('.plan_card').first().click();
     cy.get('button#next-button').click();
 
