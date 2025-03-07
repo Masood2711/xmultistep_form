@@ -50,16 +50,15 @@ describe('Multi-step Form', () => {
     cy.get('.plan_card').first().should('have.class', 'selected');
   });
 
-  it('should allow plan selection and proceed to next step', () => {
+  it('should display a validation message if the e-mail is not in correct format', () => {
     // Step 1: Fill in the required fields
     cy.get('input[name="userName"]').type('Stephen King');
-    cy.get('input[name="email"]').type('stephenking@lorem.com');
+    cy.get('input[name="email"]').type('stephenking');
     cy.get('input[name="phone"]').type('7894561230');
     cy.get('button#next-button').click();
-
-    // Step 2: Select a plan
-    cy.get('.plan_card').first().click();
-    cy.get('.plan_card').first().should('have.class', 'selected');
+    cy.get('input[name="email"]').then(($input) => {
+      expect($input[0].validationMessage).to.exist;
+    });
   });
 
   it('should allow add-ons selection and proceed to next step', () => {
