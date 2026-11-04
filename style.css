@@ -729,3 +729,11 @@ button{
         padding: 40px 0;
     }
 }
+
+#next-button.confirm-state {
+    background: var(--blue);
+}
+
+#next-button.confirm-state:hover {
+    background: #6259ff;
+}

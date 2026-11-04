@@ -92,11 +92,17 @@ function showStep(stepNumber){
     //Hide Go Back on the first and final screens
     backButton.style.visibility= stepNumber === 1 || stepNumber === 5 ?"hidden":"visible";
 
-    //Hide Next Step on the summary and thank-you screens
-    nextButton.style.display = stepNumber >=4 ?"none":"block";
+    // Show Next Step until the summary screen
+    nextButton.style.display = stepNumber <= 4 ? "block" : "none";
 
-    //Show Confirm only on the summary screen
-    confirmButton.style.display=stepNumber === 4 ?"block":"none";
+     // Change button text on the summary screen
+    nextButton.textContent = stepNumber === 4 ? "Confirm" : "Next Step";
+
+    // Use Next Step as the Confirm button
+    confirmButton.style.display = "none";
+
+    // Highlight the button on the summary screen
+    nextButton.classList.toggle("confirm-state", stepNumber === 4);
 
      // Update summary whenever Step 4 is displayed
      if (stepNumber === 4) {
@@ -416,31 +422,29 @@ document.querySelectorAll('input[name="addons"]').forEach(function (input) {
 
 // Step 19: Handle Next Step button
 
+// Handle Next Step button
+
 nextButton.addEventListener("click", function () {
 
-    // Validate personal information on Step 1
-    if (currentStep === 1) {
-
-        if (!validatePersonalInfo()) {
-            return;
-        }
-
+    // Validate personal information
+    if (currentStep === 1 && !validatePersonalInfo()) {
+        return;
     }
 
-    // Validate plan selection on Step 2
-    if (currentStep === 2) {
+    // Validate plan selection
+    if (currentStep === 2 && !validatePlan()) {
+        return;
+    }
 
-        if (!validatePlan()) {
-            return;
-        }
-
+    // If the user is on Summary, show Thank You
+    if (currentStep === 4) {
+        showStep(5);
+        return;
     }
 
     // Move to the next step
     if (currentStep < 4) {
-
         showStep(currentStep + 1);
-
     }
 
 });
