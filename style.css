@@ -1,0 +1,731 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+/*Our Application Colors */
+
+:root{
+    --navy: #02295a;
+    --blue:#473dff;
+    --light-blue:#bee2fd;
+    --pale-blue:#eef5ff;
+    --gray: #9699aa;
+    --light-gray:#d6d9e6;
+    --red:#ed3548;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+/*Main page design*/
+body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#eef5ff;
+
+    font-family:'Ubuntu',sans-serif;
+    color: var(--navy);
+    padding:30px;
+}
+
+button,input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+/*Main Application Container*/
+.app-container{
+    width:940px;
+    min-height: 600px;
+    display: flex;
+    gap: 80px;
+    padding: 16px;
+    background: white;
+    border-radius: 15px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.05);
+}
+
+/*Sidebar design*/
+.sidebar{
+    width:274px;
+    flex-shrink: 0;
+
+    padding:40px 32px;
+
+    border-radius:10px;
+    background:
+    radial-gradient(circle at 10% 10%, #6259ff, transparent 45%),
+    linear-gradient(150deg, #483eff, #3426d4);
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    color:white;
+
+}
+
+/*Each sidebar step*/
+.step-indicator{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+/*Step Number Circle*/
+.step-number{
+    width:34px;
+    height:34px;
+
+    display:flex;
+    justify-content: center;
+    align-items:center;
+
+    border:1px solid white;
+    border-radius: 50%;
+
+    font-size:14px;
+    font-weight:700;
+}
+
+/*Highlight the currently active step*/
+.step-indicator.active .step-number{
+    background: var(--light-blue);
+    color: var(--navy);
+    border-color:var(--light-blue);
+
+}
+/*small step1 step2 text*/
+.step-indicator p{
+    font-size: 12px;
+    color:var(--light-blue);
+    margin-bottom:5px;
+
+}
+/*Your Info,Select Plan etc*/
+.step-indicator h3{
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+/*Main form content*/
+.form-content{
+    flex:1;
+    min-width:0;
+    padding:40px 0 16px;
+}
+
+/*Hide all form steps initially*/
+.form-step{
+    display: none;
+}
+
+/*Display only the active step*/
+.form-step.active{
+    display:block;
+}
+
+/*Form Headings*/
+.form-content h1{
+    font-size: 32px;
+    margin-bottom: 12px;
+    color: var(--navy);
+}
+
+/*Description below headings*/
+.description{
+    color:var(--gray);
+    font-size:16px;
+    line-height:1.6;
+    margin-bottom:35px;
+}
+
+/*Personal Information form groups*/
+.form-group{
+    margin-bottom:24px;
+}
+
+/*Label and Error messages Container*/
+.label-row{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    margin-bottom:8px;
+}
+
+/*Input labels*/
+.form-group label{
+    font-size:14px;
+}
+
+/*Input field design*/
+.form-group input{
+    width:100%;
+    height:48px;
+
+    border:1px solid var(--light-gray);
+    border-radius:8px;
+
+    padding:0 16px;
+
+    color:var(--navy);
+    font-weight:500;
+
+    outline:none;
+}
+
+/*Placeholder tet color*/
+.form-group input::placeholder{
+    color:var(--gray);
+}
+
+/*When user clicks inside an input*/
+.form-group input:focus{
+    border-color:var(--blue);
+}
+
+/*When an input contains an error*/
+.form-group input.invalid{
+    border-color:var(--red);
+}
+
+/*Validation error message*/
+.error{
+    color:var(--red);
+    font-size: 12px;
+    font-weight:700;
+}
+
+
+/*Container holding all three plans*/
+.plan-container{
+    display:flex;
+    gap:18px;
+}
+
+.plan-card{
+    flex:1;
+    min-width:0;
+    min-height:180px;
+
+    padding:18px 12px;
+
+    border: 1px solid var(--light-gray);
+    border-radius:8px;
+
+    background: white;
+    color: var(--navy);
+
+    text-align:left;
+
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:35px;
+}
+
+/*When user hovers over a plan*/
+.plan_card:hover,.plan_card:focus-visible{
+    border-color:var(--blue);
+}
+
+/*Selected Plan Card*/
+.plan_card.selected{
+    border-color:var(--blue);
+    background:var(--pale-blue);
+}
+
+/*plan icon circle*/
+.plan-icon{
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content: center;
+    align-items:center;
+
+    color:white;
+    font-weight:700;
+}
+
+/*Arcade Icon*/
+.arcade-icon{
+    background: #ffaf7e;
+}
+
+/*Advance Icon*/
+.advance-icon{
+    background: #f9818e;
+}
+
+/*Pro Icon*/
+.pro-icon{
+    background: #483eff;
+}
+
+/*Plan name and price container*/
+.plan-details{
+    display:flex;
+    flex-direction: column;
+    gap:7px;
+}
+
+/*Plan name*/
+.plan-details strong{
+    font-size: 16px;
+}
+
+/*Plan price*/
+.plan-price{
+    font-size: 14px;
+    color: var(--gray);
+}
+
+/*Yearly subscription benefit*/
+.yearly-benefit{
+    font-size: 12px;
+    color: var(--navy);
+}
+
+/*Monthly and Yearly biling container*/
+.billing-toggle{
+    margin-top:30px;
+    padding:14px;
+
+    background: var(--pale-blue);
+    border-radius:8px;
+
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    gap:24px;
+}
+
+/*Billing labels*/
+.billing-label{
+    color:var(--gray);
+    font-size:14px;
+    font-weight:700;
+}
+
+/*Highlight the currently active billing option*/
+.billing-label.active{
+    color: var(--navy);
+}
+
+/*Toggle switch container */
+.switch{
+    width:40px;
+    height:20px;
+
+    position: relative;
+    display: inline-block;
+}
+
+/*Hide the orginal checkbox appearance*/
+.switch input{
+    opacity:0;
+    width:0;
+    height:0;
+}
+
+/*Switch background*/
+
+.switch-slider{
+    position:absolute;
+    inset:0;
+
+    background:var(--navy);
+    border-radius:20px;
+}
+
+/*White circle inside the switch    */
+.switch-slider::before{
+    content:"";
+    position:absolute;
+
+    width:12px;
+    height:12px;
+
+    left:4px;
+    top:4px;
+
+    border-radius:50%;
+    background:white;
+
+    transition:transform 0.2s;
+}
+
+/*Move thewhite circle when checkbox is checked    */
+.switch input::checked + .switch-slider::before{
+    transform:translateX(20px);
+}
+
+/*Container holding all add on cards  */
+.addon-container{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.addon_card{
+    display: flex;
+    align-items: center;
+    gap:20px;
+
+    min-height:80px;
+    padding:16px;
+
+    border:1px solid var(--light-gray);
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+/*When user hover over on add-on  */
+.addon_card:hover,.addon_card:focus-within{
+    border-color:var(--blue);
+}
+
+/*Background and border for selected add-on*/
+.addon_card:has(input:checked){
+    border-color: var(--blue);
+    background: var(--pale-blue);
+}
+
+/*Hide the browsers orginal checkbox*/
+.addon_card input{
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+/*Custom Checkbo square*/
+.custom-checkbox{
+    width:20px;
+    height:20px;
+
+    border:1px solid var(--light-gray);
+    border-radius:4px;
+
+    flex-shrink: 0;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addon_card input:checked + .custom-checkbox{
+    background: var(--blue);
+    border-color: var(--blue);
+}
+
+.addon_card input:checked + .custom-checkbox::after{
+    content:"✓";
+    color:white;
+    font-size:14px;
+}
+
+/*Add-on details container*/
+.addon-details{
+    flex:1;
+    display:flex;
+    flex-direction: column;
+    gap:6px;
+}
+
+/*Add-on name*/
+.addon-details strong{
+    font-size:15px;
+}
+
+/*Add-on description*/
+.addon-details span{
+    color:var(--gray);
+    font-size:13px;
+}
+
+/*Add-on price*/
+.addon-price{
+    color:var(--blue);
+    font-size:13px;
+}
+
+/*Summary Container*/
+.summary-box{
+    background:var(--pale-blue);
+    border-radius:8px;
+    padding:24px;
+}
+
+/*Selected Plan row*/
+.selected-plan{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom:24px;
+    border-bottom:1px solid var(--light-gray);
+}
+
+/*Plan name and change button*/
+.selected-plan div{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+/*change button*/
+.selected-plan button{
+    border: none;
+    background:none;
+    text-decoration: underline;
+    color:var(--gray);
+    text-align:left;
+}
+
+/*change button hover effect*/
+.selected-plan button:hover{
+    color:var(--blue);
+}
+
+/*Individual add-on rows in summary*/
+.summary-addon{
+    display:flex;
+    justify-content:space-between;
+    padding-top:20px;
+    color:var(--gray);
+    font-size:14px;
+}
+
+/*Add on price*/
+.summary-addon strong{
+    color:var(--navy);
+}
+
+/*Total price container */
+.total-row{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding:24px;
+
+    color:var(--gray);
+    font-size:14px;
+}
+
+/*Total Amount */
+.total-row strong{
+    color:var(--blue);
+    font-size:22px;
+}
+
+.thank-you{
+    text-align:center;
+    padding:80px 0;
+}
+
+.thank-you-icon{
+    width:60px;
+    height:60px;
+
+    margin:0 auto 30px;
+    border-radius:50%;
+
+    background: #f9818e;
+
+    color:white;
+    font-size:35px;
+
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+/*Thank you subscriptions */
+.thank-you p{
+    color: var(--gray);
+    line-height:1.7;
+    margin-bottom: 20px;
+}
+
+.thank-you a{
+    color: var(--blue);
+}
+
+/*Navigation Container*/
+.navigation{
+    margin-top:auto;
+    padding-top:30px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+/*Common Navigation button styles*/
+.navigation button{
+    border:none;
+    border-radius:8px;
+
+    padding:14px 24px;
+
+    font-size:14px;
+    font-weight:700;
+}
+
+/*Go Back button*/
+#back-button{
+    background:transparent;
+    color:var(--gray);
+
+}
+
+#back-button:hover{
+    color:var(--navy);
+}
+
+#confirm-button,#next-button{
+    background:var(--navy);
+    color:white;
+}
+
+/*Hover Effect*/
+#next-button:hover,#confirm-button:hover{
+    background: #164a8a;
+}
+
+/*Confirm Button color*/
+#confirm-button{
+    background: var(--blue);
+}
+
+#back-button:focus-visible,#next-button:focus-visible,#confirm-button:focus-visible{
+    outline:3px solid var(--light-blue);
+    outline-offset:3px;
+}
+
+#back-button:disabled{
+    visibility: hidden;
+}
+
+#confirm-button{
+    display:none;
+}
+
+/*Mobile reponsive design*/
+@media(max-width:700){
+    body{
+        display:block;
+        padding:0;
+        background: var(--pale-blue);
+    }
+    .app-container{
+        width:100%;
+        min-height:100vh;
+
+        padding:0;
+        display:block;
+
+        background:transparent;
+        border-radius:0;
+        box-shadow:none;
+    }
+
+    .sidebar{
+        width:100%;
+        height:170px;
+
+        border-radius:0;
+
+        padding:30px 20px;
+        flex-direction: row;
+        justify-content: center;
+        gap:16px;
+    }
+
+    .step-indicator{
+        align-items:flex-start;
+    }
+
+    .step-indicator > div{
+        display:none;
+    }
+
+    .form-content{
+        width:calc(100%,-32px);
+        min-height: 460px;
+        margin:-65px auto 100px;
+        position:relative;
+        padding:32px 24px;
+        background: white;
+        border-radius: 10px;
+        box-shadow:0 5px 25px  rgba(0,0,0,0.05);
+
+    }
+    .form-content h1{
+        font-size:24px;
+    }
+
+    .description{
+        font-size: 14px;
+        margin-bottom: 25px;
+
+    }
+    .plan-container{
+        flex-direction: column;
+        gap:12px;
+    }
+    .plan_card{
+        min-height: 80px;
+        flex-direction: row;
+        align-items: center;
+        gap:16px;
+    }
+    .plan-details{
+        gap:5px;
+    }
+    .billing-toggle{
+        margin-top:24px;
+    }
+    .addon_card{
+        gap: 12px;
+        padding: 14px 10px;
+    }
+    .addon-details strong{
+        font-size:13px;
+    }
+    .addon-details span{
+        font-size: 11px;
+    }
+    .addon-price{
+        font-size: 11px;
+    }
+    .summary-box{
+        padding: 18px;
+    }
+    .navigation{
+        position: fixed;
+        bottom: 0;
+        left:0;
+        right:0;
+        background: white;
+        padding: 16px;
+        margin: 0;
+        z-index: 10;
+    }
+    .thank-you{
+        padding: 40px 0;
+    }
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>XMultistepForm</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main class="app-container">
+            <!--Sidebar-->
+            <aside class="sidebar">
+                <div class="step-indicator active" data-step="1">
+                    <span class="step-number">1</span>
+                    <div>
+                        <p>STEP 1</p>
+                        <h3>Your Info</h3>
+                    </div>
+                </div>
+    
+                <div class="step-indicator" data-step="2">
+                    <span class="step-number">2</span>
+                    <div>
+                        <p>STEP 2</p>
+                        <h3>Select Plan</h3>
+                    </div>
+                </div>
+    
+                <div class="step-indicator" data-step="3">
+                    <span class="step-number">3</span>
+                    <div>
+                        <p>STEP 3</p>
+                        <h3>Add-ons</h3>
+                    </div>
+                </div>
+    
+                <div class="step-indicator" data-step="4">
+                    <span class="step-number">4</span>
+                    <div>
+                        <p>STEP 4</p>
+                        <h3>Summary</h3>
+                    </div>
+                </div>
+            </aside>
+            <!--Min Form Content-->
+            <section class="form-content">
+                <!--Step1: Personal Information-->
+                <section class="form-step active" data-step="1">
+                    <h1>Personal Info</h1>
+                    <p class="description">Please provide your name, email address and phone number</p>
+                    <form id="personal-form" novalidate>
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label for="userName">Name</label>
+                                <span class="error" id="name-error" ></span>
+                            </div>
+                            <input type="text" id="userName" name="userName" placeholder="e.g. Stephen king">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label for="email">Email</label>
+                                <span class="error" id="email-error" ></span>
+                            </div>
+                            <input type="email" id="email" name="email" placeholder="e.g. stephenking@lorem.com">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label for="phone">Phone Number</label>
+                                <span class="error" id="phone-error" ></span>
+                            </div>
+                            <input type="tel" id="phone" name="phone" placeholder="e.g. +1 234 567 5678">
+                        </div>
+                    </form>
+                </section>
+
+                <!--Step2 Select Plan-->
+                
+                <section class="form-step" data-step="2">
+                    <h1>Select your plan</h1>
+                    <p class="description">You have the option of monthly or yearly billing</p>
+                    <!--Plan Cards-->
+                    <div class="plan-container">
+                        <!--Arcade Plan-->
+                        <button type="button" class="plan_card" data-plan="Arcade" aria-pressed="false">
+                            <span class="plan-icon advance-icon">A</span>
+                            <span class="plan-details">
+                                <strong>Arcade</strong>
+                                <span class="plan-price"></span>
+                                <span class="yearly-benefit"></span>
+                            </span>
+                        </button>
+                        <!--Advance Plan-->
+                        <button type="button" class="plan_card" data-plan="Advance" aria-pressed="false">
+                            <span class="plan-icon advance-icon">P</span>
+                            <span class="plan-details">
+                                <strong>Advance</strong>
+                                <span class="plan-price"></span>
+                                <span class="yearly-benefit"></span>
+                            </span>
+                        </button>
+                        <!--Pro Plan-->
+                        <button type="button" class="plan_card" data-plan="Pro" aria-pressed="false">
+                            <span class="plan-icon pro-icon">P</span>
+                            <span class="plan-details">
+                                <strong>Pro</strong>
+                                <span class="plan-price"></span>
+                                <span class="yearly-benefit"></span>
+                            </span>
+                        </button>
+                    </div>
+                    <!-- Plan Selection Error-->
+                    <p class="error" id="plan-error"></p>
+
+                    <div class="billing-toggle">
+                        <span class="billing-label active" id="monthly-label">
+                            Monthly
+                        </span>
+                        <label class="switch">
+                            <input type="checkbox" id="billing-toggle">
+                            <span class="switch-slider"></span>
+                        </label>
+                        <span class="billing-label" id="yearly-label">
+                            Yearly
+                        </span>
+                    </div>
+                </section>
+
+                <!--Step3 Add Ons-->
+
+                <section class="form-step" data-step="3">
+                    <h1>Pick add-ons</h1>
+                    <p class="description">Add-ons help enhance gaming experience</p>
+                    <div class="addon-container">
+                        <!--Online Services-->
+                        <label class="addon_card">
+
+                            <input type="checkbox" name="addons" value="online">
+                            <span class="custom-checkbox"></span>
+                            <span class="addon-details">
+                                <strong>Online Services</strong>
+                                <span>Access to multiplayer games</span>
+                            </span>
+
+                            <span class="addon-price"></span>
+                        </label>
+
+                        <!--Larger Storage-->
+                        <label class="addon_card">
+
+                            <input type="checkbox" name="addons" value="storage">
+                            <span class="custom-checkbox"></span>
+                            <span class="addon-details">
+                                <strong>Larger Storage</strong>
+                                <span>Extra 1TB of cloud save</span>
+                            </span>
+
+                            <span class="addon-price"></span>
+                        </label>
+
+                        <!--Customizable Profile-->
+                        <label class="addon_card">
+
+                            <input type="checkbox" name="addons" value="profile">
+                            <span class="custom-checkbox"></span>
+                            <span class="addon-details">
+                                <strong>Customizable Profile</strong>
+                                <span>Custom theme on your profile</span>
+                            </span>
+
+                            <span class="addon-price"></span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="form-step" data-step="4">
+                    <h1>Finishing up</h1>
+                    <p class="description">Double-check everything looks OK before confirming</p>
+                    <!--Summary Box-->
+                    <div class="summary-box">
+                        <!--Selected Plan-->
+                        <div class="selected-plan">
+                            <div>
+                                <strong id="summary-plan-name"></strong>
+                                <button type="button" id="change-plan">
+                                    Change
+                                </button>
+                            </div>
+                            <strong id="summary-plan-price"></strong>
+                        </div>
+                        <div id="summary-addons"></div>
+                    </div>
+                    <!--Total Price-->
+                    <div class="total-row">
+                        <span id="summary-total-label"></span>
+                        <strong id="summary-total"></strong>
+                    </div>
+                </section>
+
+                <section class="form-step thank-you" data-step="5">
+
+                    <div class="thank-you-icon">✓</div>
+
+                    <h1>Thank You!</h1>
+                    <p>
+                        Thanks for confirming your subscription!
+                        We hope you have fun using our platform.
+                    </p>
+
+                    <p>
+                        If you ever need support, please feel free
+                        to email us at
+
+                        <a href="mailto:support@loregaming.com">
+                            support@loregaming.com
+                        </a>
+                    </p>
+                </section>
+                <div class="navigation">
+                    <button type="button" id="back-button">
+                        Go Back
+                    </button>
+                    <button type="button" id="next-button">
+                        Next Step
+                    </button>
+                    <button type="button" id="confirm-button">
+                        Confirm
+                    </button>
+                </div>
+            </section>
+        </main>
+        <script src="script.js"></script>
+    </body>
+    
+</html>
